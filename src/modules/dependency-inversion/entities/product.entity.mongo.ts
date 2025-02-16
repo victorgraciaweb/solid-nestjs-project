@@ -1,20 +1,22 @@
-import { Schema, Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
 export const PRODUCT_MONGO_MODEL_NAME = 'ProductMongo';
 
-export const ProductMongoSchema = new Schema(
-  {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    price: { type: Number, required: true },
-    createdAt: { type: Date, default: Date.now },
-  },
-  { collection: 'products' },
-);
-
-export interface ProductMongo extends Document {
+@Schema({ collection: 'products', timestamps: true })
+export class ProductMongo extends Document {
+  
+  @Prop({ required: true })
   name: string;
+
+  @Prop({ required: true })
   description: string;
+
+  @Prop({ required: true, min: 0 })
   price: number;
+
+  @Prop({ default: Date.now })
   createdAt: Date;
 }
+
+export const ProductMongoSchema = SchemaFactory.createForClass(ProductMongo);
