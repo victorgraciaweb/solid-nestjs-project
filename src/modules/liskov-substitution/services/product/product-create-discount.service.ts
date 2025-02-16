@@ -10,7 +10,9 @@ export class ProductCreateDiscountService extends ProductCreateService {
 
   async create(createProductDto: CreateProductDto) {
     const discountPercentage = 20;
-    const discountedPrice = createProductDto.price - (createProductDto.price * discountPercentage) / 100;
+    const discountedPrice =
+      createProductDto.price -
+      (createProductDto.price * discountPercentage) / 100;
 
     const discountedProduct = {
       ...createProductDto,

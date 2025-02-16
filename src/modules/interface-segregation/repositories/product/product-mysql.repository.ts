@@ -11,12 +11,12 @@ export class ProductMySQLRepository implements ProductReader {
     @InjectRepository(ProductMysql)
     private readonly repository: Repository<ProductMysql>,
   ) {}
-  
+
   findById(id: string): Promise<Product | null> {
     throw new Error('Method not implemented.');
   }
 
   findAll(): Promise<Product[]> {
     throw new Error('Method not implemented.');
-  } 
+  }
 }

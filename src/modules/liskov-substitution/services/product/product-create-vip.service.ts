@@ -14,7 +14,7 @@ export class ProductCreateVipService extends ProductCreateService {
     const vipProduct = {
       ...createProductDto,
       price: createProductDto.price + vipFee,
-      vipFee, 
+      vipFee,
     };
 
     console.log(`Created VIP product:`, vipProduct);
