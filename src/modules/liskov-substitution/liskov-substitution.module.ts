@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { ProductController } from './controllers/product/product.controller';
-import { ProductService } from './services/product/product.service';
+import { ProductService } from './services/product/product-create.service';
 
 @Module({
-  controllers: [ProductController],
+  controllers: [],
   providers: [ProductService],
 })
 export class LiskovSubstitutionModule {}
